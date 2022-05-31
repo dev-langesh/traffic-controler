@@ -3,6 +3,7 @@ const express = require("express");
 const { log } = require("./middlewares/access.middleware");
 
 const { rateLimiter } = require("./middlewares/rateLimiter.middleware");
+const { uploadRoute } = require("./routes/upload.route");
 
 const app = express();
 
@@ -16,6 +17,10 @@ if (!PORT) {
 app.use(log);
 app.use(express.json());
 app.use(rateLimiter);
+app.use("/uploads", express.static("uploads"));
+
+// routes
+app.use("/post", uploadRoute);
 
 app.get("/", (req, res) => {
   const data = `Server of port ${PORT}`;
