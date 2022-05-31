@@ -2,6 +2,8 @@ const express = require("express");
 
 const { log } = require("./middlewares/access.middleware");
 
+const { rateLimiter } = require("./middlewares/rateLimiter.middleware");
+
 const app = express();
 
 const PORT = process.env.PORT || 9999;
@@ -13,6 +15,7 @@ if (!PORT) {
 // middlewares
 app.use(log);
 app.use(express.json());
+app.use(rateLimiter);
 
 app.get("/", (req, res) => {
   const data = `Server of port ${PORT}`;
