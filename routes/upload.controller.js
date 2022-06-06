@@ -15,7 +15,7 @@ async function uploadController(req, res) {
     image: imageUrl,
   });
 
-  res.send("Image created");
+  res.json({ imageUrl: imageUrl });
 }
 
 module.exports = { uploadController };

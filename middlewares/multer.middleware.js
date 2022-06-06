@@ -13,6 +13,7 @@ const fileFilter = (req, file, cb) => {
   if (whiteList.includes(file.mimetype)) {
     cb(null, true);
   } else {
+    req.json({ error: "File Type Not Supported" });
     cb("File type not allowed", false);
   }
 };
