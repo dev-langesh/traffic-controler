@@ -1,5 +1,7 @@
 const form = document.getElementById("form");
 const image = document.getElementById("image");
+const process = document.getElementById("process");
+const chunk = document.getElementById("chunk");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -9,6 +11,8 @@ form.addEventListener("submit", (e) => {
   xhr.open("POST", "/post");
 
   xhr.upload.addEventListener("progress", (e) => {
+    chunk.innerText = "Chunk :" + e.loaded;
+    process.innerText = "Processed :" + Math.ceil((e.loaded / e.total) * 100);
     console.log("Current Chunk : ", e.loaded);
     console.log("Loaded : " + Math.ceil((e.loaded / e.total) * 100));
   });

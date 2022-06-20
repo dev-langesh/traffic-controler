@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <section>
-        <form id="form">
-            <label for="image">Upload file</label>
-            <input type="file" name="image" id="image">
-            <input type="submit" value="Upload" id="submit">
-        </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Controller</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <form id="form">
+        <input type="file" name="image" id="image" />
+        <input type="submit" value="Upload" id="submit" />
+        <section>
+          <p id="chunk"></p>
+          <p id="process"></p>
+        </section>
+      </form>
     </section>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>

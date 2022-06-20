@@ -18,7 +18,7 @@ if (!PORT) {
 
 // middlewares
 app.use(helmet());
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(log);
 app.use(express.json());
 app.use(rateLimiter);
@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
   console.log(`Server at ${PORT} is responding`);
 });
 
-app.get("/check-server", (req, res) => {
+app.get("/check-port", (req, res) => {
   const data = `Server of port ${PORT}`;
   console.log(`Server at ${PORT} is responding`);
   res.send(data);
